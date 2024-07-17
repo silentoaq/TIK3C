@@ -130,7 +130,6 @@ def 關機():
     print("Executing 關機 function")
     os.system("shutdown /r /f /t 0")
 
-# 定義一個字典來存儲每個禮物對應的函數和隊列
 gift_queues = {
     'GG': (Q, Queue()),
     'Ice Cream Cone': (W, Queue()),
@@ -152,7 +151,7 @@ def worker(gift_name):
         task = queue.get()
         if task is None:
             break
-        count = task.get('count', 1)  # 從任務字典中獲取 'count' 鍵的值，默認為 1
+        count = task.get('count', 1)  
         for _ in range(count):
             func()
             time.sleep(0.05)
